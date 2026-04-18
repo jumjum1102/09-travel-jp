@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Singapore Tourism Guide 2025 | シンガポール観光ガイド</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,600;0,700;1,300;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ══════════════════════════════════════
+   RESET & ROOT
+══════════════════════════════════════ */
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:#060606;color:#E8E3DC;font-family:'DM Sans',sans-serif;font-weight:300;overflow-x:hidden;line-height:1.7;}
+:root{
+  --gold:#C9943A;--gold2:rgba(201,148,58,.13);
+  --ink:#060606;--paper:#E8E3DC;
+  --mid:rgba(232,227,220,.54);--dim:rgba(232,227,220,.26);
+  --line:rgba(232,227,220,.08);--px:clamp(20px,5vw,68px);
+}
+img{display:block;max-width:100%;}
+a{color:inherit;text-decoration:none;}
+
+/* grain */
+body::before{content:'';position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.033'/%3E%3C/svg%3E");}
+
+/* ══════════════════════════════════════
+   ANIMATIONS
+══════════════════════════════════════ */
+.rv{opacity:0;transform:translateY(32px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+.rv.in{opacity:1;transform:translateY(0);}
+.rv.d1{transition-delay:.1s;}.rv.d2{transition-delay:.2s;}.rv.d3{transition-delay:.3s;}.rv.d4{transition-delay:.4s;}
+.rl{opacity:0;transform:translateX(-32px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+.rl.in{opacity:1;transform:translateX(0);}
+.rr{opacity:0;transform:translateX(32px);transition:opacity .85s cubic-bezier(.16,1,.3,1),transform .85s cubic-bezier(.16,1,.3,1);}
+.rr.in{opacity:1;transform:translateX(0);}
+
+/* ══════════════════════════════════════
+   HEADER
+══════════════════════════════════════ */
+#hdr{position:fixed;top:0;left:0;right:0;z-index:400;padding:18px var(--px);display:flex;justify-content:space-between;align-items:center;transition:background .5s;}
+#hdr.sc{background:rgba(6,6,6,.93);backdrop-filter:blur(20px);border-bottom:1px solid var(--line);}
+.logo{font-family:'Cormorant Garamond',serif;font-size:clamp(14px,2vw,18px);font-weight:300;letter-spacing:4px;color:var(--paper);}
+.logo b{font-weight:700;color:var(--gold);}
+#hmbg{display:none;background:none;border:none;color:var(--paper);font-size:22px;cursor:pointer;z-index:401;}
+#mmenu{position:fixed;inset:0;background:#060606;z-index:399;display:flex;flex-direction:column;justify-content:center;align-items:center;gap:22px;transform:translateX(100%);transition:transform .5s cubic-bezier(.16,1,.3,1);}
+#mmenu.open{transform:translateX(0);}
+.ml{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,5vw,38px);font-weight:300;color:var(--mid);cursor:pointer;transition:color .2s;}
+.ml:hover{color:var(--gold);}
+
+/* ══════════════════════════════════════
+   HERO
+══════════════════════════════════════ */
+#hero{position:relative;height:100svh;min-height:600px;display:flex;align-items:flex-end;overflow:hidden;}
+#hbg{position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1565967511849-76a60a516170?w=1920&q=85') center 40%/cover no-repeat;filter:brightness(.36);transform:scale(1.06);transition:transform 10s ease;}
+#hbg.rdy{transform:scale(1);}
+.h-grad{position:absolute;inset:0;background:linear-gradient(175deg,transparent 25%,rgba(6,6,6,.65) 58%,#060606 100%);}
+.h-inner{position:relative;z-index:2;padding:0 var(--px) clamp(52px,8vh,96px);width:100%;}
+.h-ey{display:flex;align-items:center;gap:14px;font-size:10px;letter-spacing:6px;color:rgba(201,148,58,.78);text-transform:uppercase;margin-bottom:18px;}
+.h-ey::before{content:'';width:30px;height:1px;background:rgba(201,148,58,.5);}
+h1.ht{font-family:'Cormorant Garamond',serif;font-size:clamp(48px,9.5vw,122px);font-weight:300;line-height:.93;color:var(--paper);letter-spacing:-2px;margin-bottom:8px;}
+h1.ht em{font-style:italic;color:var(--gold);}
+.h-sub{font-family:'Cormorant Garamond',serif;font-size:clamp(13px,2vw,21px);font-weight:300;color:var(--mid);letter-spacing:5px;text-transform:uppercase;margin-bottom:32px;}
+.h-stats{display:flex;gap:clamp(22px,4vw,50px);flex-wrap:wrap;margin-bottom:clamp(26px,4vh,48px);}
+.hs{border-top:1px solid var(--line);padding-top:12px;min-width:90px;}
+.hs-v{font-family:'Cormorant Garamond',serif;font-size:clamp(22px,3.2vw,38px);font-weight:700;color:var(--gold);line-height:1;}
+.hs-l{font-size:9px;letter-spacing:2px;color:var(--dim);margin-top:5px;text-transform:uppercase;}
+.h-scr{display:flex;align-items:center;gap:12px;font-size:9px;letter-spacing:4px;color:var(--dim);text-transform:uppercase;}
+.scl{width:48px;height:1px;background:var(--line);overflow:hidden;position:relative;}
+.scl::after{content:'';position:absolute;left:-100%;top:0;width:100%;height:100%;background:var(--gold);animation:sl 2s ease infinite;}
+@keyframes sl{0%{left:-100%}100%{left:100%}}
+
+/* ══════════════════════════════════════
+   SECTIONS
+══════════════════════════════════════ */
+section{position:relative;z-index:1;}
+.sec{padding:clamp(76px,10vh,130px) var(--px);}
+.sec-a{padding:clamp(76px,10vh,130px) var(--px);background:rgba(255,255,255,.022);}
+.inn{max-width:960px;margin:0 auto;}
+.inn-w{max-width:1140px;margin:0 auto;}
+.chlbl{font-size:9px;letter-spacing:5px;color:var(--gold);text-transform:uppercase;margin-bottom:12px;}
+.cht{font-family:'Cormorant Garamond',serif;font-size:clamp(26px,4.2vw,54px);font-weight:300;color:var(--paper);line-height:1.15;margin-bottom:10px;}
+.cht em{font-style:italic;color:var(--gold);}
+.chsub{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:14px;color:var(--dim);margin-bottom:48px;}
+.chrul{width:36px;height:1px;background:var(--gold);margin-bottom:48px;opacity:.6;}
+.bp{font-size:14px;color:var(--mid);line-height:1.95;}
+.bp+.bp{margin-top:14px;}
+strong{font-weight:500;color:var(--paper);}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:clamp(22px,4vw,56px);align-items:start;}
+.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(14px,2.5vw,24px);}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,2vw,20px);}
+
+/* stat */
+.stat{border-top:1px solid var(--line);padding-top:16px;}
+.stat.gd{border-top-color:var(--gold);}
+.stat-n{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,48px);font-weight:700;color:var(--paper);line-height:1;}
+.stat.gd .stat-n{color:var(--gold);}
+.stat-u{font-size:.4em;font-weight:300;color:var(--dim);}
+.stat-l{font-size:11px;color:var(--dim);margin-top:7px;line-height:1.6;}
+
+/* dark box */
+.dk{border:1px solid var(--line);padding:22px 18px;background:rgba(255,255,255,.028);}
+.dk-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:rgba(201,148,58,.7);margin-bottom:7px;}
+.dk-t{font-size:14px;font-weight:500;color:var(--paper);margin-bottom:7px;}
+.dk-b{font-size:13px;color:var(--mid);line-height:1.8;}
+
+/* timeline */
+.tl{border-left:1px solid var(--line);padding-left:26px;margin-left:8px;}
+.tli{position:relative;padding-bottom:26px;}
+.tli:last-child{padding-bottom:0;}
+.tli::before{content:'';position:absolute;left:-32px;top:5px;width:8px;height:8px;border-radius:50%;border:1px solid var(--gold);background:#060606;}
+.tl-yr{font-family:'Cormorant Garamond',serif;font-size:12px;font-weight:700;color:var(--gold);letter-spacing:2px;margin-bottom:3px;}
+.tl-t{font-size:13px;font-weight:500;color:var(--paper);margin-bottom:4px;}
+.tl-b{font-size:12px;color:var(--mid);line-height:1.8;}
+
+/* pull quote */
+.pq{border-left:2px solid var(--gold);padding:16px 22px;background:rgba(201,148,58,.04);margin:24px 0;}
+.pq q{font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2vw,20px);font-style:italic;color:var(--paper);line-height:1.6;}
+.pq cite{display:block;font-size:11px;color:var(--dim);margin-top:8px;letter-spacing:2px;text-transform:uppercase;font-style:normal;}
+
+/* table */
+.ttbl{width:100%;border-collapse:collapse;font-size:13px;}
+.ttbl th{padding:10px 13px;font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);border-bottom:1px solid rgba(201,148,58,.22);text-align:left;font-weight:400;}
+.ttbl td{padding:12px 13px;border-bottom:1px solid var(--line);color:var(--mid);vertical-align:top;line-height:1.6;}
+.ttbl td:first-child{font-weight:500;color:var(--paper);}
+.ttbl tr:hover td{background:rgba(201,148,58,.04);}
+
+/* map link */
+.maplnk{display:inline-flex;align-items:center;gap:6px;font-size:10px;letter-spacing:1px;border:1px solid var(--line);padding:4px 11px;color:var(--dim);transition:border-color .25s,color .25s;}
+.maplnk:hover{border-color:var(--gold);color:var(--gold);}
+.maplnk svg{width:11px;height:11px;flex-shrink:0;}
+
+/* ══════════════════════════════════════
+   CH3 — SEASONAL GUIDE
+══════════════════════════════════════ */
+.season-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;margin-bottom:36px;}
+.sg-card{position:relative;overflow:hidden;height:380px;cursor:default;}
+.sg-img{width:100%;height:100%;object-fit:cover;filter:brightness(.45);transform:scale(1.06);transition:transform .7s ease,filter .7s ease;}
+.sg-card:hover .sg-img{transform:scale(1);filter:brightness(.35);}
+.sg-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,.96) 0%,rgba(6,6,6,.2) 65%,transparent 100%);}
+.sg-body{position:absolute;bottom:0;left:0;right:0;padding:18px 16px;}
+.sg-season{font-size:9px;letter-spacing:3px;text-transform:uppercase;margin-bottom:5px;}
+.sg-title{font-family:'Cormorant Garamond',serif;font-size:clamp(20px,2.5vw,28px);font-weight:600;color:var(--paper);line-height:1.2;margin-bottom:8px;}
+.sg-months{font-size:11px;font-weight:500;color:var(--gold);letter-spacing:1px;margin-bottom:8px;}
+/* temp bar */
+.temp-bar{display:flex;align-items:center;gap:8px;margin-bottom:8px;}
+.tb-label{font-size:10px;color:var(--dim);min-width:60px;}
+.tb-track{flex:1;height:5px;background:rgba(255,255,255,.1);border-radius:3px;overflow:hidden;}
+.tb-fill{height:100%;border-radius:3px;}
+.tb-val{font-size:10px;font-weight:600;min-width:36px;text-align:right;}
+.sg-events{display:flex;flex-direction:column;gap:3px;margin-bottom:8px;opacity:0;transform:translateY(6px);transition:opacity .35s,transform .35s;}
+.sg-card:hover .sg-events{opacity:1;transform:translateY(0);}
+.sg-ev{font-size:11px;color:var(--mid);display:flex;align-items:flex-start;gap:5px;line-height:1.5;}
+.sg-ev::before{content:'·';color:var(--gold);flex-shrink:0;}
+.sg-outfit{font-size:11px;color:rgba(201,148,58,.8);margin-top:4px;font-style:italic;}
+
+/* best-time box */
+.best-box{border:1px solid rgba(201,148,58,.25);padding:28px;background:rgba(201,148,58,.04);margin-top:32px;}
+.bb-t{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:300;color:var(--gold);margin-bottom:16px;}
+.bb-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
+.bb-item{border-top:1px solid rgba(201,148,58,.2);padding-top:12px;}
+.bb-rank{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.bb-period{font-size:14px;font-weight:500;color:var(--paper);margin-bottom:4px;}
+.bb-reason{font-size:12px;color:var(--mid);line-height:1.7;}
+
+/* monthly temp chart (inline SVG) */
+.temp-chart-wrap{background:rgba(255,255,255,.028);border:1px solid var(--line);padding:24px;margin-top:32px;}
+
+/* ══════════════════════════════════════
+   CH4 — ATTRACTION CARDS
+══════════════════════════════════════ */
+#s4-att{padding:clamp(76px,10vh,130px) var(--px);position:relative;z-index:1;}
+.att-grid{max-width:1140px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:2px;}
+.att-card{position:relative;overflow:hidden;cursor:pointer;background:#0e0e0e;}
+.att-img{width:100%;height:310px;object-fit:cover;filter:brightness(.52) saturate(.9);transform:scale(1.06);transition:transform .8s ease,filter .8s ease;display:block;}
+.att-card.tall .att-img{height:622px;}
+.att-card:hover .att-img{transform:scale(1);filter:brightness(.38) saturate(.8);}
+.att-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,.95) 0%,rgba(6,6,6,.25) 55%,transparent 100%);pointer-events:none;}
+.att-body{position:absolute;bottom:0;left:0;right:0;padding:18px;transform:translateY(6px);transition:transform .38s ease;}
+.att-card:hover .att-body{transform:translateY(0);}
+.att-num{font-size:9px;letter-spacing:3px;color:rgba(201,148,58,.65);text-transform:uppercase;margin-bottom:4px;}
+.att-cat{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:3px;}
+.att-name{font-family:'Cormorant Garamond',serif;font-size:clamp(17px,2.3vw,24px);font-weight:600;color:var(--paper);line-height:1.2;margin-bottom:5px;}
+.att-desc{font-size:11px;color:var(--mid);line-height:1.65;max-height:0;overflow:hidden;transition:max-height .38s ease,opacity .38s ease;opacity:0;}
+.att-card:hover .att-desc{max-height:100px;opacity:1;}
+.att-foot{display:flex;align-items:center;justify-content:space-between;margin-top:8px;opacity:0;transform:translateY(5px);transition:opacity .38s,transform .38s;}
+.att-card:hover .att-foot{opacity:1;transform:translateY(0);}
+.att-tag{font-size:9px;letter-spacing:2px;text-transform:uppercase;border:1px solid rgba(201,148,58,.38);color:var(--gold);padding:2px 9px;}
+.att-credit{position:absolute;top:8px;right:8px;font-size:8px;color:rgba(255,255,255,.25);}
+
+/* mandai strip */
+.mandai-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;margin-top:2px;max-width:1140px;margin-left:auto;margin-right:auto;}
+.ms{position:relative;overflow:hidden;height:190px;background:#0d0d0d;}
+.ms-img{width:100%;height:100%;object-fit:cover;filter:brightness(.48);transform:scale(1.05);transition:transform .7s ease,filter .7s ease;}
+.ms:hover .ms-img{transform:scale(1);filter:brightness(.3);}
+.ms-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,.92) 0%,transparent 55%);}
+.ms-body{position:absolute;bottom:0;left:0;right:0;padding:12px 14px;}
+.ms-name{font-family:'Cormorant Garamond',serif;font-size:13px;font-weight:600;color:var(--paper);margin-bottom:2px;}
+.ms-desc{font-size:10px;color:var(--mid);line-height:1.5;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;}
+.ms:hover .ms-desc{opacity:1;transform:translateY(0);}
+
+/* ══════════════════════════════════════
+   CH5 — SOUVENIRS
+══════════════════════════════════════ */
+.sv-tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:32px;}
+.sv-tab{padding:10px 20px;font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s;font-family:'DM Sans',sans-serif;background:none;border-top:none;border-left:none;border-right:none;}
+.sv-tab.active{color:var(--paper);border-bottom-color:var(--gold);}
+.sv-panel{display:none;}
+.sv-panel.active{display:block;}
+.sv-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:2px;}
+.sv-item{position:relative;overflow:hidden;height:240px;background:#0e0e0e;cursor:default;}
+.sv-img{width:100%;height:100%;object-fit:cover;filter:brightness(.5);transform:scale(1.06);transition:transform .7s,filter .7s;}
+.sv-item:hover .sv-img{transform:scale(1);filter:brightness(.35);}
+.sv-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(6,6,6,.95) 0%,transparent 55%);}
+.sv-body{position:absolute;bottom:0;left:0;right:0;padding:14px 12px;}
+.sv-rank{font-size:9px;letter-spacing:2px;color:var(--gold);margin-bottom:3px;}
+.sv-name{font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;color:var(--paper);margin-bottom:2px;}
+.sv-price{font-size:10px;color:var(--gold);font-weight:500;margin-bottom:2px;}
+.sv-desc{font-size:10px;color:var(--mid);line-height:1.5;opacity:0;transform:translateY(4px);transition:opacity .3s,transform .3s;}
+.sv-item:hover .sv-desc{opacity:1;transform:translateY(0);}
+
+/* ══════════════════════════════════════
+   CH6 — ITINERARY
+══════════════════════════════════════ */
+.itin-days{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;}
+.day-col{background:rgba(255,255,255,.025);border-top:2px solid var(--gold);}
+.day-head{padding:20px 16px 14px;border-bottom:1px solid var(--line);}
+.day-num{font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:4px;}
+.day-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;color:var(--paper);line-height:1.2;}
+.day-theme{font-size:11px;color:var(--mid);margin-top:3px;font-style:italic;}
+.day-body{padding:0;}
+.time-block{padding:14px 16px;border-bottom:1px solid var(--line);}
+.time-block:last-child{border-bottom:none;}
+.tb-time{font-size:10px;letter-spacing:2px;color:var(--gold);margin-bottom:4px;font-weight:500;}
+.tb-activity{font-size:13px;font-weight:500;color:var(--paper);margin-bottom:4px;line-height:1.3;}
+.tb-note{font-size:11px;color:var(--mid);line-height:1.6;}
+.tb-cat{display:inline-block;font-size:8px;letter-spacing:1.5px;text-transform:uppercase;border:1px solid var(--line);padding:2px 7px;color:var(--dim);margin-bottom:5px;}
+.tb-cat.food{border-color:rgba(201,148,58,.3);color:rgba(201,148,58,.7);}
+.tb-cat.sight{border-color:rgba(100,180,255,.3);color:rgba(100,180,255,.7);}
+.tb-cat.hotel{border-color:rgba(180,100,255,.3);color:rgba(180,100,255,.7);}
+.tb-cat.act{border-color:rgba(100,255,180,.3);color:rgba(100,255,180,.7);}
+.itin-tip{border:1px solid rgba(201,148,58,.2);padding:20px 24px;background:rgba(201,148,58,.04);margin-top:28px;}
+.itin-tip-t{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.itin-tip-b{font-size:13px;color:var(--mid);line-height:1.8;}
+
+/* ══════════════════════════════════════
+   CH7 — LEARNINGS
+══════════════════════════════════════ */
+.li{display:flex;gap:20px;padding:20px 0;border-bottom:1px solid var(--line);}
+.li:last-child{border-bottom:none;}
+.li-n{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:700;color:rgba(201,148,58,.2);line-height:1;flex-shrink:0;}
+.li-t{font-size:14px;font-weight:500;color:var(--paper);margin-bottom:5px;}
+.li-b{font-size:13px;color:var(--mid);line-height:1.8;}
+
+/* ══════════════════════════════════════
+   FOOTER & BTT
+══════════════════════════════════════ */
+footer{padding:clamp(48px,7vh,68px) var(--px) 28px;background:#040404;border-top:1px solid var(--line);position:relative;z-index:1;}
+.ft-in{max-width:960px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:clamp(24px,4vw,52px);margin-bottom:40px;}
+.ft-logo{font-family:'Cormorant Garamond',serif;font-size:19px;font-weight:300;letter-spacing:3px;color:var(--paper);margin-bottom:8px;}
+.ft-logo b{color:var(--gold);font-weight:700;}
+.ft-desc{font-size:12px;color:var(--dim);line-height:1.8;max-width:210px;}
+.ft-ct{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+.ft-lnk{display:block;font-size:12px;color:var(--dim);padding:5px 0;border-bottom:1px solid var(--line);cursor:pointer;transition:color .2s;}
+.ft-lnk:hover{color:var(--paper);}
+.ft-btm{max-width:960px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;padding-top:20px;border-top:1px solid var(--line);font-size:10px;color:rgba(232,227,220,.15);}
+#btt{position:fixed;bottom:26px;left:26px;z-index:200;width:40px;height:40px;border:1px solid var(--line);background:rgba(6,6,6,.8);backdrop-filter:blur(12px);color:var(--mid);font-size:15px;display:flex;align-items:center;justify-content:center;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,border-color .3s;}
+#btt.show{opacity:1;pointer-events:all;}
+#btt:hover{border-color:var(--gold);color:var(--gold);}
+
+/* ══════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════ */
+@media(max-width:1000px){
+  .att-grid{grid-template-columns:1fr 1fr;}
+  .att-card.tall{grid-row:span 1;}
+  .att-card.tall .att-img,.att-img{height:270px;}
+  .mandai-strip{grid-template-columns:1fr 1fr;}
+  .season-grid{grid-template-columns:1fr 1fr;}
+  .sv-grid{grid-template-columns:1fr 1fr 1fr;}
+  .itin-days{grid-template-columns:1fr 1fr;}
+  .g2{grid-template-columns:1fr;}
+  .g4{grid-template-columns:1fr 1fr;}
+  .ft-in{grid-template-columns:1fr 1fr;gap:28px;}
+  .bb-grid{grid-template-columns:1fr;}
+}
+@media(max-width:640px){
+  #hmbg{display:block;}
+  h1.ht{font-size:clamp(42px,12vw,64px);}
+  .att-grid{grid-template-columns:1fr;}
+  .season-grid{grid-template-columns:1fr 1fr;}
+  .sv-grid{grid-template-columns:1fr 1fr;}
+  .itin-days{grid-template-columns:1fr;}
+  .mandai-strip{grid-template-columns:1fr 1fr;}
+  .g3{grid-template-columns:1fr;}
+  .att-desc{max-height:72px;opacity:1;}
+  .att-foot{opacity:1;transform:none;}
+  .sv-desc{opacity:1;transform:none;}
+  .ms-desc{opacity:1;transform:none;}
+  .sg-events{opacity:1;transform:none;}
+  .ft-in{grid-template-columns:1fr;}
+  .ft-btm{flex-direction:column;gap:5px;text-align:center;}
+  #btt{bottom:18px;left:18px;}
+  .sv-tab{padding:8px 11px;font-size:9px;}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header id="hdr">
+  <div class="logo">Singapore<b>Tourism</b></div>
+  <button id="hmbg" onclick="toggleM()">☰</button>
+</header>
+<div id="mmenu">
+  <div class="ml" onclick="gs('s1')">01 観光政策・インフラ</div>
+  <div class="ml" onclick="gs('s2')">02 観光業の役割</div>
+  <div class="ml" onclick="gs('s3')">03 おすすめ時期</div>
+  <div class="ml" onclick="gs('s4-att')">04 人気スポット15</div>
+  <div class="ml" onclick="gs('s5')">05 お土産20選</div>
+  <div class="ml" onclick="gs('s6')">06 3泊4日モデル</div>
+  <div class="ml" onclick="gs('s7')">07 まとめ</div>
+</div>
+
+<!-- HERO -->
+<section id="hero">
+  <div id="hbg"></div>
+  <div class="h-grad"></div>
+  <div class="h-inner">
+    <div class="h-ey rv in">Singapore Tourism Guide 2025</div>
+    <h1 class="ht rv in d1">The <em>Lion</em><br>City Awaits.</h1>
+    <p class="h-sub rv in d2">シンガポール観光完全ガイド</p>
+    <div class="h-stats rv in d3">
+      <div class="hs"><div class="hs-v">1,650<span style="font-size:.55em;font-weight:300;">万</span></div><div class="hs-l">2024年訪問者数</div></div>
+      <div class="hs"><div class="hs-v">S$274<span style="font-size:.55em;font-weight:300;">億</span></div><div class="hs-l">観光収入2024</div></div>
+      <div class="hs"><div class="hs-v">9.8<span style="font-size:.55em;font-weight:300;">%</span></div><div class="hs-l">GDP貢献率</div></div>
+      <div class="hs"><div class="hs-v">#1</div><div class="hs-l">Changi空港世界評価</div></div>
+    </div>
+    <div class="h-scr rv in d4"><div class="scl"></div><span>Scroll</span></div>
+  </div>
+</section>
+
+<!-- ══ S1: 観光政策 ══ -->
+<section id="s1" class="sec">
+<div class="inn">
+  <div class="rv"><div class="chlbl">Chapter 01</div></div>
+  <div class="rv d1"><h2 class="cht">観光政策と<em>インフラ設計</em></h2></div>
+  <div class="rv d2"><p class="chsub">Government Policy & Tourism Infrastructure — Engineering the Perfect Destination</p></div>
+  <div class="rv d2"><div class="chrul"></div></div>
+  <div class="g2" style="margin-bottom:48px;">
+    <div>
+      <div class="pq rv">
+        <q>「シンガポールは60年で観光業を経済の柱に育て上げた。次の10年は量から質へ。」</q>
+        <cite>— STB Chief Executive, 2024</cite>
+      </div>
+      <p class="bp rv">STB（観光局）の<strong>Singapore Tourism Plan</strong>はコンテンツ型観光（MICE・コンサート・F1）と自然体験型（Mandai・Gardens by the Bay）の両軸で世界から「選ばれる理由」を常に更新。2024年は<strong>チャンギ空港国際座席数が前年比15%増（2019年比98%回復）</strong>し、訪問者数が過去最高の1,650万人を達成した。</p>
+    </div>
+    <div>
+      <div class="tl rv">
+        <div class="tli"><div class="tl-yr">2010</div><div class="tl-t">2つのIR開業でゲームチェンジ</div><div class="tl-b">Marina Bay SandsとResorts World Sentosaがカジノ・MICE・観光を一体化。観光収入が一気に倍増。</div></div>
+        <div class="tli"><div class="tl-yr">2012</div><div class="tl-t">Gardens by the Bay開園</div><div class="tl-b">「City in a Garden」を体現する国家投資型観光施設。世界的ランドマークへ。</div></div>
+        <div class="tli"><div class="tl-yr">2019</div><div class="tl-t">Jewel Changi Airport開業</div><div class="tl-b">空港そのものを観光地化。世界最大の室内滝が入国前から感動を演出。</div></div>
+        <div class="tli"><div class="tl-yr">2024</div><div class="tl-t">中国向け30日間ビザ免除開始</div><div class="tl-b">中国からの訪問者が308万人（前年比急増）。Taylor Swift・Coldplayコンサートが近隣から観客を吸引。</div></div>
+        <div class="tli"><div class="tl-yr">2025</div><div class="tl-t">Rainforest Wild ASIA開園</div><div class="tl-b">Mandai第5パーク誕生。Super Nintendo World拡張。1,700〜1,850万人目標。</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="g4">
+    <div class="stat rv"><div class="stat-n">1,650<span class="stat-u">万</span></div><div class="stat-l">2024年 訪問者数<br>（前年比+21%）</div></div>
+    <div class="stat gd rv d1"><div class="stat-n">130<span class="stat-u">駅+</span></div><div class="stat-l">MRT駅数<br>主要観光地を全直結</div></div>
+    <div class="stat rv d2"><div class="stat-n">41<span class="stat-u">百万席</span></div><div class="stat-l">Changi空港<br>年間国際座席容量</div></div>
+    <div class="stat gd rv d3"><div class="stat-n">100<span class="stat-u">都市+</span></div><div class="stat-l">SQで直結する<br>世界の都市数</div></div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S2: 観光業の役割 ══ -->
+<section id="s2" class="sec-a">
+<div class="inn">
+  <div class="rv"><div class="chlbl">Chapter 02</div></div>
+  <div class="rv d1"><h2 class="cht">観光業の<em>戦略的役割</em></h2></div>
+  <div class="rv d2"><p class="chsub">Tourism as Economic Engine — GDP, Jobs & Global Positioning</p></div>
+  <div class="rv d2"><div class="chrul"></div></div>
+  <div class="g4" style="margin-bottom:40px;">
+    <div class="stat rv"><div class="stat-n">9.8<span class="stat-u">%</span></div><div class="stat-l">GDPに対する<br>観光業貢献率</div></div>
+    <div class="stat gd rv d1"><div class="stat-n">57<span class="stat-u">万</span></div><div class="stat-l">観光関連<br>雇用者数（過去最高）</div></div>
+    <div class="stat rv d2"><div class="stat-n">2位</div><div class="stat-l">世界MICE都市<br>（ICCA 2023年）</div></div>
+    <div class="stat gd rv d3"><div class="stat-n">7位</div><div class="stat-l">持続可能観光<br>世界ランク（2024年）</div></div>
+  </div>
+  <div class="g3">
+    <div class="dk rv">
+      <div class="dk-lbl">MICE産業</div>
+      <div class="dk-t">会議・展示で稼ぐ都市</div>
+      <div class="dk-b">MBS・Suntec・Changiのインフラで2023年のMICE開催件数は世界2位。F1・国際コンサートが加わり観光・ビジネスの相乗効果が最大化。</div>
+    </div>
+    <div class="dk rv d1">
+      <div class="dk-lbl">IR（統合型リゾート）</div>
+      <div class="dk-t">カジノ×ホテル×エンタメ</div>
+      <div class="dk-b">2010年開業のMBS・RWSは観光収入を倍増させた。政府はカジノ税を高く設定しつつ、施設全体の経済効果を最大化。シンガポール市民のみ入場料S$150徴収。</div>
+    </div>
+    <div class="dk rv d2">
+      <div class="dk-lbl">サステナブル観光</div>
+      <div class="dk-t">APACで持続可能性1位</div>
+      <div class="dk-b">2024年Global Destination Sustainability IndexでAPAC1位・世界7位。MICE向け世界初のGSTC認定サステナビリティ基準を策定。観光由来GHG排出を年4.1%削減。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S3: おすすめ観光時期 ══ -->
+<section id="s3" class="sec">
+<div class="inn-w">
+  <div class="rv" style="max-width:960px;margin:0 auto 32px;"><div class="chlbl">Chapter 03</div></div>
+  <div class="rv d1" style="max-width:960px;margin:0 auto 8px;"><h2 class="cht">気温・天気と<br><em>おすすめ観光時期</em></h2></div>
+  <div class="rv d2" style="max-width:960px;margin:0 auto 48px;"><p class="chsub">Climate, Weather & Best Time to Visit Singapore — Month by Month Guide</p></div>
+
+  <!-- 気温グラフ (inline SVG) -->
+  <div class="temp-chart-wrap rv" style="max-width:960px;margin:0 auto 32px;">
+    <div style="font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--dim);margin-bottom:16px;font-weight:500;">📊 月別気温・降水量（年間推移）</div>
+    <svg viewBox="0 0 720 180" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+      <!-- Grid -->
+      <line x1="50" y1="20" x2="710" y2="20" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="50" y1="60" x2="710" y2="60" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="50" y1="100" x2="710" y2="100" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="50" y1="140" x2="710" y2="140" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <!-- Y labels -->
+      <text x="4" y="23" font-size="9" fill="rgba(255,255,255,.3)" font-family="DM Sans,sans-serif">35°C</text>
+      <text x="4" y="63" font-size="9" fill="rgba(255,255,255,.3)" font-family="DM Sans,sans-serif">32°C</text>
+      <text x="4" y="103" font-size="9" fill="rgba(255,255,255,.3)" font-family="DM Sans,sans-serif">29°C</text>
+      <text x="4" y="143" font-size="9" fill="rgba(255,255,255,.3)" font-family="DM Sans,sans-serif">25°C</text>
+      <!-- Month labels -->
+      <text x="80" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">1月</text>
+      <text x="133" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">2月</text>
+      <text x="186" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">3月</text>
+      <text x="239" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">4月</text>
+      <text x="292" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">5月</text>
+      <text x="345" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">6月</text>
+      <text x="398" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">7月</text>
+      <text x="451" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">8月</text>
+      <text x="504" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">9月</text>
+      <text x="557" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">10月</text>
+      <text x="610" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">11月</text>
+      <text x="663" y="168" font-size="9" fill="rgba(255,255,255,.35)" font-family="DM Sans,sans-serif" text-anchor="middle">12月</text>
+      <!-- Max temp line (31-33°C range) coords mapped: 35=20, 25=140 → scale: 1°C = 12px, 0°C from 35 = 20 -->
+      <!-- 30°C → 20+(35-30)*12=80; 31→68; 32→56; 33→44; 34→32 -->
+      <polyline points="80,68 133,60 186,60 239,56 292,56 345,60 398,64 451,64 504,64 557,56 610,60 663,68"
+        fill="none" stroke="#C9943A" stroke-width="2.5" stroke-linejoin="round"/>
+      <!-- Min temp line (24-26°C) 26°C→20+(35-26)*12=128; 25→140; 24→152 clamp to 140 -->
+      <polyline points="80,120 133,112 186,112 239,108 292,108 345,112 398,116 451,116 504,116 557,112 610,116 663,120"
+        fill="none" stroke="rgba(100,180,255,.7)" stroke-width="2" stroke-linejoin="round" stroke-dasharray="4,3"/>
+      <!-- Dots max -->
+      <circle cx="80" cy="68" r="3.5" fill="#C9943A"/>
+      <circle cx="239" cy="56" r="3.5" fill="#C9943A"/>
+      <circle cx="557" cy="56" r="3.5" fill="#C9943A"/>
+      <circle cx="663" cy="68" r="3.5" fill="#C9943A"/>
+      <!-- Legend -->
+      <line x1="540" y1="14" x2="560" y2="14" stroke="#C9943A" stroke-width="2"/>
+      <circle cx="550" cy="14" r="3" fill="#C9943A"/>
+      <text x="565" y="18" font-size="9" fill="#C9943A" font-family="DM Sans,sans-serif">最高気温</text>
+      <line x1="620" y1="14" x2="640" y2="14" stroke="rgba(100,180,255,.7)" stroke-width="2" stroke-dasharray="4,3"/>
+      <text x="645" y="18" font-size="9" fill="rgba(100,180,255,.7)" font-family="DM Sans,sans-serif">最低気温</text>
+    </svg>
+    <p style="font-size:10px;color:var(--dim);margin-top:8px;">年間平均気温：最高31〜33℃ / 最低24〜26℃ / 湿度：70〜90%。雨季（11〜1月）でも1日中雨が降り続くことは少なく、スコールが多い。</p>
+  </div>
+
+  <!-- Season Cards -->
+  <div class="season-grid rv">
+    <!-- Season 1: Dec-Feb -->
+    <div class="sg-card">
+      <img class="sg-img" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=700&q=80" alt="Singapore December festive" loading="lazy">
+      <div class="sg-overlay"></div>
+      <div class="sg-body">
+        <div class="sg-season" style="color:#88BBFF;">🌧️ 北東モンスーン（雨季）</div>
+        <div class="sg-months">12月〜2月</div>
+        <div class="sg-title">年越し・旧正月シーズン</div>
+        <div class="temp-bar"><div class="tb-label">最高気温</div><div class="tb-track"><div class="tb-fill" style="width:76%;background:#C9943A;"></div></div><div class="tb-val" style="color:#C9943A;">30〜31°C</div></div>
+        <div class="temp-bar"><div class="tb-label">降水量</div><div class="tb-track"><div class="tb-fill" style="width:85%;background:#88BBFF;"></div></div><div class="tb-val" style="color:#88BBFF;">高い</div></div>
+        <div class="sg-events">
+          <div class="sg-ev">クリスマス（12月）— オーチャード電飾が最盛期</div>
+          <div class="sg-ev">旧正月（1〜2月）— チャイナタウン大変貌</div>
+          <div class="sg-ev">チンゲイパレード（2月）— アジア最大山車行列</div>
+        </div>
+        <div class="sg-outfit">👕 半袖＋折りたたみ傘必携。スコール後は肌寒い場合も。</div>
+      </div>
+    </div>
+    <!-- Season 2: Mar-May -->
+    <div class="sg-card">
+      <img class="sg-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=700&q=80" alt="Singapore hot dry season" loading="lazy">
+      <div class="sg-overlay"></div>
+      <div class="sg-body">
+        <div class="sg-season" style="color:#FFB347;">☀️ 第1乾季（最も暑い）</div>
+        <div class="sg-months">3月〜5月</div>
+        <div class="sg-title">酷暑＋イベント充実</div>
+        <div class="temp-bar"><div class="tb-label">最高気温</div><div class="tb-track"><div class="tb-fill" style="width:95%;background:#C9943A;"></div></div><div class="tb-val" style="color:#C9943A;">33〜34°C</div></div>
+        <div class="temp-bar"><div class="tb-label">降水量</div><div class="tb-track"><div class="tb-fill" style="width:45%;background:#88BBFF;"></div></div><div class="tb-val" style="color:#88BBFF;">少ない</div></div>
+        <div class="sg-events">
+          <div class="sg-ev">タイプーサム（1〜2月末）— 荘厳なヒンドゥー行進</div>
+          <div class="sg-ev">ハリラヤ・プアサ（変動）— ラマダン明け祭</div>
+          <div class="sg-ev">Singapore Art Week（1月）— 現代アートの祭典</div>
+        </div>
+        <div class="sg-outfit">👕 速乾Tシャツ＋日焼け止め必須。UV指数が非常に高い。</div>
+      </div>
+    </div>
+    <!-- Season 3: Jun-Aug -->
+    <div class="sg-card">
+      <img class="sg-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80" alt="Singapore summer beach" loading="lazy">
+      <div class="sg-overlay"></div>
+      <div class="sg-body">
+        <div class="sg-season" style="color:#66DD88;">⛱️ 南西モンスーン</div>
+        <div class="sg-months">6月〜8月</div>
+        <div class="sg-title">夏休み＆国慶節シーズン</div>
+        <div class="temp-bar"><div class="tb-label">最高気温</div><div class="tb-track"><div class="tb-fill" style="width:86%;background:#C9943A;"></div></div><div class="tb-val" style="color:#C9943A;">31〜32°C</div></div>
+        <div class="temp-bar"><div class="tb-label">降水量</div><div class="tb-track"><div class="tb-fill" style="width:55%;background:#88BBFF;"></div></div><div class="tb-val" style="color:#88BBFF;">中程度</div></div>
+        <div class="sg-events">
+          <div class="sg-ev">National Day（8月9日）— 花火・パレードが壮大</div>
+          <div class="sg-ev">ハリラヤ・ハジ（6月）— モスクで犠牲祭</div>
+          <div class="sg-ev">Hungry Ghost Festival（8月）— 道教の盂蘭盆</div>
+        </div>
+        <div class="sg-outfit">👕 通気性の良い半袖1枚＋冷房対策の薄羽織り推奨。</div>
+      </div>
+    </div>
+    <!-- Season 4: Sep-Nov -->
+    <div class="sg-card">
+      <img class="sg-img" src="https://images.unsplash.com/photo-1525625293386-3f8f99389edd?w=700&q=80" alt="Singapore night skyline" loading="lazy">
+      <div class="sg-overlay"></div>
+      <div class="sg-body">
+        <div class="sg-season" style="color:#C9943A;">🏆 最高の観光シーズン</div>
+        <div class="sg-months">9月〜11月</div>
+        <div class="sg-title">涼しめ＋大型イベント集中</div>
+        <div class="temp-bar"><div class="tb-label">最高気温</div><div class="tb-track"><div class="tb-fill" style="width:82%;background:#C9943A;"></div></div><div class="tb-val" style="color:#C9943A;">31〜32°C</div></div>
+        <div class="temp-bar"><div class="tb-label">降水量</div><div class="tb-track"><div class="tb-fill" style="width:65%;background:#88BBFF;"></div></div><div class="tb-val" style="color:#88BBFF;">やや多い</div></div>
+        <div class="sg-events">
+          <div class="sg-ev">F1シンガポールGP（9月）— 夜間市街地レース</div>
+          <div class="sg-ev">ディパバリ（10〜11月）— リトルインディア光の祭典</div>
+          <div class="sg-ev">中秋節（9月）— ランタン・月餅文化</div>
+        </div>
+        <div class="sg-outfit">👕 半袖で十分。夜は少し涼しい。傘あると安心。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Best time recommendation -->
+  <div class="best-box rv" style="max-width:1140px;margin:32px auto 0;">
+    <div class="bb-t">🏅 観光おすすめ時期ランキング</div>
+    <div class="bb-grid">
+      <div class="bb-item">
+        <div class="bb-rank">🥇 第1位 ベスト</div>
+        <div class="bb-period">9月〜11月</div>
+        <div class="bb-reason">F1・ディパバリ・中秋節と大型イベントが集中。比較的過ごしやすく観光の密度が最高。9月のF1夜間レースは世界随一の体験。</div>
+      </div>
+      <div class="bb-item">
+        <div class="bb-rank">🥈 第2位 良好</div>
+        <div class="bb-period">1月〜2月</div>
+        <div class="bb-reason">旧正月でチャイナタウンが最大の変貌を遂げる。チンゲイパレードは必見。雨は多いが短時間スコールが主流で観光には支障が少ない。</div>
+      </div>
+      <div class="bb-item">
+        <div class="bb-rank">🥉 第3位 注意</div>
+        <div class="bb-period">3月〜5月</div>
+        <div class="bb-reason">気温が年間最高（34℃超）になる時期。屋外観光には体力が必要だが空港料金が比較的安い。Mandai・Gardens by the Bayは早朝訪問を推奨。</div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S4: 人気スポット15選 ══ -->
+<section id="s4-att" class="sec-a">
+<div style="max-width:1140px;margin:0 auto var(--px);">
+  <div class="rv"><div class="chlbl">Chapter 04</div></div>
+  <div class="rv d1"><h2 class="cht">人気スポット<em>15選</em></h2></div>
+  <div class="rv d2"><p class="chsub">Top 15 Tourist Attractions — Hotels, Casinos, Wildlife, Theme Parks & More</p></div>
+</div>
+<div class="att-grid">
+  <!-- 01 MBS -->
+  <div class="att-card tall rv">
+    <img class="att-img" src="https://images.unsplash.com/photo-1565967511849-76a60a516170?w=900&q=80" alt="Marina Bay Sands" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">01</div><div class="att-cat">ホテル・カジノ・IR</div>
+      <div class="att-name">Marina Bay Sands</div>
+      <div class="att-desc">3棟を繋ぐ空中プール（SkyPark）が象徴的な統合型リゾート。カジノ・高級ショッピング・ミシュラン星付きレストラン・コンベンションセンターを一体化。展望デッキから全景を望む。</div>
+      <div class="att-foot">
+        <span class="att-tag">Marina Bay</span>
+        <a href="https://maps.google.com/maps?q=Marina+Bay+Sands+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 02 Gardens -->
+  <div class="att-card rv d1">
+    <img class="att-img" src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80" alt="Gardens by the Bay" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">02</div><div class="att-cat">自然・植物園</div>
+      <div class="att-name">Gardens by the Bay</div>
+      <div class="att-desc">101haの未来型植物園。スーパーツリー（高さ50m）が夜のGarden Rhapsodyで輝く。フラワードーム・クラウドフォレストは通年快適な室内観光。</div>
+      <div class="att-foot">
+        <span class="att-tag">Bay South</span>
+        <a href="https://maps.google.com/maps?q=Gardens+by+the+Bay+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 03 Jewel -->
+  <div class="att-card rv d2">
+    <img class="att-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800&q=80" alt="Changi Airport" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">03</div><div class="att-cat">空港・複合施設</div>
+      <div class="att-name">Jewel Changi Airport</div>
+      <div class="att-desc">世界最大の室内滝「Rain Vortex」（高さ40m）を中心に室内庭園・スカイブリッジが広がる空港直結施設。空港自体が観光地のシンガポールを象徴する体験。</div>
+      <div class="att-foot">
+        <span class="att-tag">Changi</span>
+        <a href="https://maps.google.com/maps?q=Jewel+Changi+Airport+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 04 USS -->
+  <div class="att-card rv">
+    <img class="att-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&q=80" alt="Sentosa theme park" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">04</div><div class="att-cat">テーマパーク</div>
+      <div class="att-name">Universal Studios Singapore</div>
+      <div class="att-desc">東南アジア初のUSS。ミニオンランド・Super Nintendo World・Jurassic Park・Battlestar Galacticaなど7ゾーン。週末には夜の花火も。</div>
+      <div class="att-foot">
+        <span class="att-tag">Sentosa / RWS</span>
+        <a href="https://maps.google.com/maps?q=Universal+Studios+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 05 Sentosa -->
+  <div class="att-card tall rv d1">
+    <img class="att-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=80" alt="Sentosa beach Singapore" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">05</div><div class="att-cat">リゾートアイランド</div>
+      <div class="att-name">Sentosa Island</div>
+      <div class="att-desc">USS・SEAアクアリウム・Adventure Cove・3ビーチ（Siloso/Palawan/Tanjong）・高級スパ・ゴルフコースまで。ケーブルカー・モノレール・徒歩でアクセス可。</div>
+      <div class="att-foot">
+        <span class="att-tag">Sentosa</span>
+        <a href="https://maps.google.com/maps?q=Sentosa+Island+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 06 Botanic -->
+  <div class="att-card rv d2">
+    <img class="att-img" src="https://images.unsplash.com/photo-1587825140708-dfaf72ae4b04?w=800&q=80" alt="Singapore Botanic Gardens" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">06</div><div class="att-cat">世界遺産・植物園</div>
+      <div class="att-name">Singapore Botanic Gardens</div>
+      <div class="att-desc">1859年創設、アジア初のユネスコ世界遺産植物園。64haに蘭1,000品種以上のNational Orchid Garden。入場無料（一部有料）。</div>
+      <div class="att-foot">
+        <span class="att-tag">Tanglin / 無料</span>
+        <a href="https://maps.google.com/maps?q=Singapore+Botanic+Gardens" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 07 Merlion -->
+  <div class="att-card rv">
+    <img class="att-img" src="https://images.unsplash.com/photo-1508780709619-79562169bc64?w=800&q=80" alt="Merlion Park Singapore" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">07</div><div class="att-cat">ランドマーク・無料</div>
+      <div class="att-name">Merlion Park</div>
+      <div class="att-desc">シンガポールの象徴・マーライオン像がある公園。MBS正面の絶景スポット。夜間レーザーショー「Spectra」と組み合わせた夜景観光が定番。入場無料。</div>
+      <div class="att-foot">
+        <span class="att-tag">Marina Bay / 無料</span>
+        <a href="https://maps.google.com/maps?q=Merlion+Park+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 08 Clarke Quay -->
+  <div class="att-card rv d1">
+    <img class="att-img" src="https://images.unsplash.com/photo-1531259683007-016a7b628fc3?w=800&q=80" alt="Clarke Quay river Singapore" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">08</div><div class="att-cat">グルメ・ナイトライフ</div>
+      <div class="att-name">Clarke Quay / Boat Quay</div>
+      <div class="att-desc">シンガポール川沿いの歴史的倉庫街が変貌した飲食・エンタメ地区。各国料理・バー・クラブが夜遅くまで賑わう。リバークルーズの発着点。</div>
+      <div class="att-foot">
+        <span class="att-tag">River Valley</span>
+        <a href="https://maps.google.com/maps?q=Clarke+Quay+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 09 Flyer -->
+  <div class="att-card rv d2">
+    <img class="att-img" src="https://images.unsplash.com/photo-1567721913486-6585f069b912?w=800&q=80" alt="Singapore skyline aerial" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">09</div><div class="att-cat">展望スポット</div>
+      <div class="att-name">Singapore Flyer</div>
+      <div class="att-desc">高さ165mのアジア最大級の観覧車。28の冷房完備カプセルから30分かけて360度展望。夜景・夕景が特に絶景。ダイニングカプセルも人気。</div>
+      <div class="att-foot">
+        <span class="att-tag">Marina Bay</span>
+        <a href="https://maps.google.com/maps?q=Singapore+Flyer" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 10 Chinatown -->
+  <div class="att-card rv">
+    <img class="att-img" src="https://images.unsplash.com/photo-1538637547773-de56fd3c5df1?w=800&q=80" alt="Singapore street market" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">10</div><div class="att-cat">文化地区・グルメ</div>
+      <div class="att-name">Chinatown & Maxwell</div>
+      <div class="att-desc">カラフルな屋台・仏教寺院・伝統市場が集まる旧市街。マックスウェル・フードセンターのチキンライスはミシュランBib Gourmand。旧正月は巨大イルミネーション。</div>
+      <div class="att-foot">
+        <span class="att-tag">Heritage District</span>
+        <a href="https://maps.google.com/maps?q=Chinatown+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 11 Little India -->
+  <div class="att-card rv d1">
+    <img class="att-img" src="https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?w=800&q=80" alt="Colorful temple Singapore" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">11</div><div class="att-cat">文化地区・多民族</div>
+      <div class="att-name">Little India & Kampong Glam</div>
+      <div class="att-desc">インド系文化の中心エリアとアラブ系イスラム街。ヒンドゥー寺院・スパイス・ハジ・レーン壁画アート・スルタン・モスクで多文化を1日で体感。</div>
+      <div class="att-foot">
+        <span class="att-tag">Heritage / Culture</span>
+        <a href="https://maps.google.com/maps?q=Little+India+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 12 Raffles -->
+  <div class="att-card rv d2">
+    <img class="att-img" src="https://images.unsplash.com/photo-1555992336-03a23c7b20ee?w=800&q=80" alt="Colonial architecture Singapore" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">12</div><div class="att-cat">高級ホテル・歴史</div>
+      <div class="att-name">Raffles Hotel Singapore</div>
+      <div class="att-desc">1887年創業のコロニアル様式高級ホテル。「シンガポール・スリング」発祥のLong Bar、伝説的なコンシェルジュサービス。ロビーバーでの1杯は必須体験。</div>
+      <div class="att-foot">
+        <span class="att-tag">Colonial District</span>
+        <a href="https://maps.google.com/maps?q=Raffles+Hotel+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 13 SEA Aquarium -->
+  <div class="att-card rv">
+    <img class="att-img" src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=800&q=80" alt="Aquarium underwater" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">13</div><div class="att-cat">水族館</div>
+      <div class="att-name">S.E.A. Aquarium</div>
+      <div class="att-desc">RWS内にある世界最大級の水族館。10万匹以上・800種以上の海洋生物。36m×8.3mの巨大開放海洋パネルの前に立つ体験は圧巻。</div>
+      <div class="att-foot">
+        <span class="att-tag">Sentosa / RWS</span>
+        <a href="https://maps.google.com/maps?q=SEA+Aquarium+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 14 Orchard -->
+  <div class="att-card rv d1">
+    <img class="att-img" src="https://images.unsplash.com/photo-1547981609-4b6bfe67ca0b?w=800&q=80" alt="Singapore shopping night" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">14</div><div class="att-cat">ショッピング</div>
+      <div class="att-name">Orchard Road</div>
+      <div class="att-desc">全長約2.2kmのシンガポール最大のショッピングストリート。ION Orchard・Paragonなど20以上のモールが連なる。クリスマスシーズンの電飾は圧巻。</div>
+      <div class="att-foot">
+        <span class="att-tag">Orchard</span>
+        <a href="https://maps.google.com/maps?q=Orchard+Road+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+  <!-- 15 ArtScience -->
+  <div class="att-card rv d2">
+    <img class="att-img" src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?w=800&q=80" alt="Museum gallery art Singapore" loading="lazy">
+    <div class="att-ov"></div>
+    <div class="att-body">
+      <div class="att-num">15</div><div class="att-cat">文化・博物館</div>
+      <div class="att-name">ArtScience Museum</div>
+      <div class="att-desc">MBS隣接の蓮の花型建築。アート・科学・テクノロジーを融合した没入型展示が話題。teamLabなどデジタルアート展も開催。建物自体がアート作品。</div>
+      <div class="att-foot">
+        <span class="att-tag">Marina Bay</span>
+        <a href="https://maps.google.com/maps?q=ArtScience+Museum+Singapore" target="_blank" rel="noopener" class="maplnk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Map</a>
+      </div>
+    </div>
+    <div class="att-credit">Unsplash CC0</div>
+  </div>
+</div>
+<!-- Mandai 5 Parks special -->
+<div style="max-width:1140px;margin:2px auto 0;padding:clamp(24px,3.5vw,40px);background:rgba(201,148,58,.05);border:1px solid rgba(201,148,58,.14);">
+  <div class="rv" style="font-size:9px;letter-spacing:4px;text-transform:uppercase;color:var(--gold);margin-bottom:10px;">Special Feature — Mandai Wildlife Reserve</div>
+  <div class="rv d1" style="font-family:'Cormorant Garamond',serif;font-size:clamp(20px,3vw,32px);font-weight:300;color:var(--paper);margin-bottom:8px;">🌿 5つの世界級ウィルドライフパーク</div>
+  <p class="rv d2" style="font-size:13px;color:var(--mid);line-height:1.8;max-width:660px;margin-bottom:24px;">最寄りMRT：Khatib駅よりバス932/927番。5パスでS$128（大人）で全5園に5日間フレキシブルアクセス可能。</p>
+  <div class="mandai-strip rv">
+    <div class="ms"><img class="ms-img" src="https://images.unsplash.com/photo-1602491453631-e2a5ad90a131?w=600&q=80" alt="Zoo animals" loading="lazy"><div class="ms-ov"></div><div class="ms-body"><div class="ms-name">🦒 Singapore Zoo</div><div class="ms-desc">開放型・自然生息環境。マレーシアトラ・オランウータン・キリンが間近に。朝食をオランウータンと共にする「Jungle Breakfast」が人気。</div></div></div>
+    <div class="ms"><img class="ms-img" src="https://images.unsplash.com/photo-1526279783837-4cb2e7ab7af4?w=600&q=80" alt="Night wildlife" loading="lazy"><div class="ms-ov"></div><div class="ms-body"><div class="ms-name">🌙 Night Safari</div><div class="ms-desc">世界初の夜間動物園。800頭以上の夜行性動物をトラム＋徒歩で観察。ヒョウ・カバ・テパーが暗闇の中で動く唯一無二の体験。</div></div></div>
+    <div class="ms"><img class="ms-img" src="https://images.unsplash.com/photo-1611689342806-0863700ce1e4?w=600&q=80" alt="River animals" loading="lazy"><div class="ms-ov"></div><div class="ms-body"><div class="ms-name">🌊 River Wonders</div><div class="ms-desc">アジア唯一のリバーテーマ野生動物公園。ジャイアントパンダ・マナティー。Amazon River Questボートライドが人気。</div></div></div>
+    <div class="ms"><img class="ms-img" src="https://images.unsplash.com/photo-1555169062-013468b47731?w=600&q=80" alt="Colorful birds" loading="lazy"><div class="ms-ov"></div><div class="ms-body"><div class="ms-name">🦜 Bird Paradise</div><div class="ms-desc">400種3,500羽のアジア最大鳥類公園。8つのウォークスルー型アビアリーが圧巻。旧Jurong Bird Parkが進化して移転。</div></div></div>
+    <div class="ms"><img class="ms-img" src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=600&q=80" alt="Rainforest jungle" loading="lazy"><div class="ms-ov"></div><div class="ms-body"><div class="ms-name">🌴 Rainforest Wild ASIA</div><div class="ms-desc">2025年3月開園の最新パーク。天蓋歩道でアジアの熱帯雨林を探索。カワウソ・テナガザル・マレートラとの偶然の出会いを演出。</div></div></div>
+  </div>
+  <div style="margin-top:16px;" class="rv">
+    <a href="https://maps.google.com/maps?q=Mandai+Wildlife+Reserve+Singapore" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(201,148,58,.35);color:var(--gold);padding:7px 18px;font-size:10px;letter-spacing:2px;text-transform:uppercase;transition:background .2s;" onmouseover="this.style.background='rgba(201,148,58,.1)'" onmouseout="this.style.background='transparent'">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>Google Map — Mandai Wildlife Reserve
+    </a>
+    <span style="font-size:11px;color:var(--dim);margin-left:14px;">5パス大人S$128 / 子供S$98</span>
+  </div>
+</div>
+</section>
+
+<!-- ══ S5: お土産 ══ -->
+<section id="s5" class="sec">
+<div class="inn-w">
+  <div class="rv"><div class="chlbl">Chapter 05</div></div>
+  <div class="rv d1"><h2 class="cht">おすすめお土産<em>20選</em></h2></div>
+  <div class="rv d2"><p class="chsub">Best Souvenirs — Food 10 Picks & Things 10 Picks</p></div>
+  <div class="rv d2" style="max-width:960px;margin-left:auto;margin-right:auto;"><div class="chrul"></div></div>
+
+  <div class="sv-tabs rv">
+    <button class="sv-tab active" onclick="switchTab(this,'sv-food')">🍜 食べ物・飲み物編 Top 10</button>
+    <button class="sv-tab" onclick="switchTab(this,'sv-things')">🛍️ モノ・雑貨編 Top 10</button>
+  </div>
+
+  <!-- Food souvenirs -->
+  <div class="sv-panel active" id="sv-food">
+    <div class="sv-grid">
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1586190848861-99aa4a171e90?w=600&q=80" alt="Cookies biscuits souvenirs" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.1 食べ物</div>
+          <div class="sv-name">チリクラブ・ソース</div>
+          <div class="sv-price">S$8〜15</div>
+          <div class="sv-desc">国民食チリクラブの瓶詰めソース。炒め物・パスタにも使える。Prima Tasteブランドが定番。スーパー・チャンギで購入可。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Bakkwa Singapore BBQ pork" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.2 食べ物</div>
+          <div class="sv-name">バクワ（肉干し）</div>
+          <div class="sv-price">S$30〜50/500g</div>
+          <div class="sv-desc">豚肉の甘辛BBQ干し肉。旧正月に特に人気。Bee Cheng Hiang・Lim Chee Guan が2大老舗。チャイナタウンで試食可。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=80" alt="Tea collection gift box" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.3 食べ物</div>
+          <div class="sv-name">Tiger Balm・Ya Kun カヤジャム</div>
+          <div class="sv-price">S$5〜18</div>
+          <div class="sv-desc">Ya Kunのカヤ（ヤシ砂糖＋ヤシミルクジャム）は朝食の定番。瓶詰めでお土産に最適。Tiger Balmも伝統的なシンガポール産品。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=600&q=80" alt="Chocolate candy sweets" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.4 食べ物</div>
+          <div class="sv-name">TWG Tea（高級紅茶）</div>
+          <div class="sv-price">S$20〜80</div>
+          <div class="sv-desc">シンガポール発の高級ティーブランド。500種以上のブレンドを展開。ギフトボックスは贈り物に最適。MBS・ION内の直営店が便利。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1519984388953-d2406bc725e1?w=600&q=80" alt="Snacks food package" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.5 食べ物</div>
+          <div class="sv-name">Bengawan Solo プンダン菓子</div>
+          <div class="sv-price">S$15〜40</div>
+          <div class="sv-desc">創業1979年の老舗ニョニャ菓子ブランド。プンダン（バンダナス葉）入りの緑色の伝統菓子。Raffles City等の店舗で購入可。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1599490659213-e2b9527bd087?w=600&q=80" alt="Laksa noodle soup Singapore" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.6 食べ物</div>
+          <div class="sv-name">ラクサ即席麺キット</div>
+          <div class="sv-price">S$5〜12</div>
+          <div class="sv-desc">プラナカン料理「ラクサ」の即席麺・ペーストセット。Prima Taste・PRIMA ブランドが人気。スーパーやチャンギ免税店で豊富に販売。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1560717845-968823efbee1?w=600&q=80" alt="Coffee beans Singapore" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.7 食べ物</div>
+          <div class="sv-name">ナンヤン・コーヒー（OLD TOWN）</div>
+          <div class="sv-price">S$8〜20</div>
+          <div class="sv-desc">バターで焙煎した独特の風味のシンガポール式コーヒー。Nanyang Old Coffee・Ya Kunのコーヒーパウダーは唯一無二の味。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1508615039623-a25605d2b022?w=600&q=80" alt="Durian candy Singapore" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.8 食べ物</div>
+          <div class="sv-name">ドリアン菓子・チョコ</div>
+          <div class="sv-price">S$10〜30</div>
+          <div class="sv-desc">「果物の王様」ドリアンのチョコレート・キャンディ・クッキー。臭いが控えめで食べやすい加工品は喜ばれる珍しいお土産。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1512054502232-10a0a035d672?w=600&q=80" alt="Prawn crackers chips Asian snack" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.9 食べ物</div>
+          <div class="sv-name">クルプック（エビせんべい）</div>
+          <div class="sv-price">S$5〜12</div>
+          <div class="sv-desc">マレー系の定番揚げスナック。手土産・職場配りに最適な個包装タイプが豊富。チリクラブ風味・ブラックペッパー風味も人気。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1571506165871-ee72a35bc9d4?w=600&q=80" alt="Singapore sling cocktail drink" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.10 食べ物</div>
+          <div class="sv-name">Singapore Sling カクテルミックス</div>
+          <div class="sv-price">S$15〜35</div>
+          <div class="sv-desc">Raffles Hotel発祥のシンガポール名物カクテルのミックス缶・ボトル。Raffles Hotel直営店・空港免税店で販売。飲み比べセットも人気。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Things souvenirs -->
+  <div class="sv-panel" id="sv-things">
+    <div class="sv-grid">
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1556742400-b5b7f0100c28?w=600&q=80" alt="Peranakan tiles colorful" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.1 モノ</div>
+          <div class="sv-name">プラナカン・タイル雑貨</div>
+          <div class="sv-price">S$15〜60</div>
+          <div class="sv-desc">カラフルなニョニャ磁器模様をモチーフにしたコースター・マグカップ・ポーチ。チャイナタウン・ティオン・バルの雑貨店で購入可。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=600&q=80" alt="Merlion figurine souvenir" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.2 モノ</div>
+          <div class="sv-name">マーライオン グッズ</div>
+          <div class="sv-price">S$5〜50</div>
+          <div class="sv-desc">シンガポールの象徴マーライオンのフィギュア・キーホルダー・Tシャツ。チャンギ空港・チャイナタウムなど観光地で幅広く販売。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1611532736597-de2d4265fba3?w=600&q=80" alt="Batik fabric textile" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.3 モノ</div>
+          <div class="sv-name">バティック（ろうけつ染め）生地・小物</div>
+          <div class="sv-price">S$15〜80</div>
+          <div class="sv-desc">マレー・インドネシア系の伝統的なろうけつ染め布。スカーフ・ハンカチ・ポーチなど。カンポングラム（アラブ・ストリート）で豊富な品揃え。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1631887284751-e01db6b1feab?w=600&q=80" alt="Vintage postcards art prints" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.4 モノ</div>
+          <div class="sv-name">ヘリテージ・ポストカード／アートプリント</div>
+          <div class="sv-price">S$3〜25</div>
+          <div class="sv-desc">ショップハウスや旧市街をモチーフにしたデザイナーズポストカード。独立系書店・ハジ・レーンのショップ・Objectifs等で発見できる一点もの。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=600&q=80" alt="Orchid flower Singapore" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.5 モノ</div>
+          <div class="sv-name">蘭（シンガポール国花）グッズ</div>
+          <div class="sv-price">S$15〜80</div>
+          <div class="sv-desc">バンダ・ミス・ジョアキムをモチーフにした刺繍・ジュエリー・アクセサリー。シンガポール植物園内のショップが最も品揃えが豊富。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?w=600&q=80" alt="Spectacles sunglasses accessory" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.6 モノ</div>
+          <div class="sv-name">Naiise / Supermama デザイン雑貨</div>
+          <div class="sv-price">S$20〜120</div>
+          <div class="sv-desc">シンガポールのローカルデザインブランド。マーライオン・ホーカーセンターをスタイリッシュにデザインしたプレート・ポーチ・Tシャツ。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1519340241574-2cec6aef0c01?w=600&q=80" alt="Fragrance perfume bottle" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.7 モノ</div>
+          <div class="sv-name">アラビアン・フレグランス（ウード）</div>
+          <div class="sv-price">S$20〜200</div>
+          <div class="sv-desc">カンポングラムのアラブ系香水店で販売する中東由来のウード（沈香）ベースの香水。シンガポール限定ブレンドも。Jamal Kazura Aromatics等が有名。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1574158622682-e40e69881006?w=600&q=80" alt="Traditional craft wooden art" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.8 モノ</div>
+          <div class="sv-name">Scoot / Singapore Airlines グッズ</div>
+          <div class="sv-price">S$10〜50</div>
+          <div class="sv-desc">シンガポール航空のミニチュア機・ポーチ・スカーフは航空ファンに人気。SQのビジネスクラスアメニティポーチは希少品。チャンギの公式ショップで購入可。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1543854589-fef0028887fe?w=600&q=80" alt="Reusable bag tote eco" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.9 モノ</div>
+          <div class="sv-name">Iuiga / Woods in the Books トートバッグ</div>
+          <div class="sv-price">S$15〜40</div>
+          <div class="sv-desc">シンガポールのサステナブル・ファッションブランドのトートバッグ。ローカル書店「Woods in the Books」のデザイントートは知る人ぞ知る逸品。</div>
+        </div>
+      </div>
+      <div class="sv-item">
+        <img class="sv-img" src="https://images.unsplash.com/photo-1617040619263-41c5a9ca7521?w=600&q=80" alt="Playing cards board game" loading="lazy">
+        <div class="sv-ov"></div>
+        <div class="sv-body">
+          <div class="sv-rank">No.10 モノ</div>
+          <div class="sv-name">Hawker Monopoly・シンガポール版ゲーム</div>
+          <div class="sv-price">S$30〜60</div>
+          <div class="sv-desc">チキンライス・ラクサ・バクテーなどホーカーフードがマスになったシンガポール版モノポリー。家族・友人へのユニークなギフトとして話題。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S6: 3泊4日モデルコース ══ -->
+<section id="s6" class="sec-a">
+<div class="inn">
+  <div class="rv"><div class="chlbl">Chapter 06</div></div>
+  <div class="rv d1"><h2 class="cht">シンガポール<br><em>3泊4日</em>モデルコース</h2></div>
+  <div class="rv d2"><p class="chsub">3 Nights 4 Days Model Itinerary — Sightseeing + Activities + Dining</p></div>
+  <div class="rv d2"><div class="chrul"></div></div>
+</div>
+<div class="inn-w">
+  <div class="itin-days rv">
+    <!-- Day 1 -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-num">Day 01</div>
+        <div class="day-title">到着＆<br>マリーナベイ</div>
+        <div class="day-theme">「シンガポールの顔」を制覇</div>
+      </div>
+      <div class="day-body">
+        <div class="time-block">
+          <div class="tb-cat sight">観光</div>
+          <div class="tb-time">10:00〜12:00</div>
+          <div class="tb-activity">Jewel Changi Airport 散策</div>
+          <div class="tb-note">到着後すぐに巨大室内滝「Rain Vortex」を堪能。Sky Netsで遊ぶ。チャンギ〜市内はMRTで約30分・S$2。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">12:30〜14:00</div>
+          <div class="tb-activity">昼食：Maxwell Food Centre</div>
+          <div class="tb-note">チキンライス・ホッケンミーをS$4〜8で。Tian Tian Hainanese Chicken Riceは必食。チャイナタウン直結。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat sight">観光</div>
+          <div class="tb-time">14:30〜16:30</div>
+          <div class="tb-activity">チャイナタウン＆仏牙寺龍華院</div>
+          <div class="tb-note">旧市街の街歩き。パゴダ・ストリートの屋台市場を物色。スリ・マリアンマン・ヒンドゥー寺院も立ち寄り。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat sight">観光</div>
+          <div class="tb-time">17:00〜19:00</div>
+          <div class="tb-activity">Gardens by the Bay（夕方〜夜）</div>
+          <div class="tb-note">夕暮れのスーパーツリー・グローブを鑑賞。クラウドフォレスト入場（S$28）後、19:45のGarden Rhapsody光と音のショー（無料）を待つ。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">19:30〜21:30</div>
+          <div class="tb-activity">夕食：Makansutra Gluttons Bay</div>
+          <div class="tb-note">MBS前の屋外ホーカー。チリクラブ・サテーを食べながらMBSの夜景を楽しむ。22:00のSpectraレーザーショーも観覧。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat hotel">宿泊</div>
+          <div class="tb-time">チェックイン</div>
+          <div class="tb-activity">Marina Bay Sands周辺ホテル</div>
+          <div class="tb-note">MBS（最高峰・S$500〜）またはMarquee / Park Royal周辺（S$180〜350）。マリーナエリアに宿泊すると移動効率が最高。</div>
+        </div>
+      </div>
+    </div>
+    <!-- Day 2 -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-num">Day 02</div>
+        <div class="day-title">センートサ島<br>全力アクティビティ</div>
+        <div class="day-theme">テーマパーク・海・夜を満喫</div>
+      </div>
+      <div class="day-body">
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">08:00〜09:00</div>
+          <div class="tb-activity">朝食：Ya Kun Kaya Toast</div>
+          <div class="tb-note">カヤジャム＋バター・トースト＋半熟卵＋コーヒーセット（S$7〜10）。シンガポーリアンの朝の定番体験。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat act">アクティビティ</div>
+          <div class="tb-time">10:00〜17:00</div>
+          <div class="tb-activity">Universal Studios Singapore（丸1日）</div>
+          <div class="tb-note">Minion Land・Super Nintendo World・Jurassic Parkを制覇。開場直後に人気ライドへ。チケット事前購入推奨（S$88〜）。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat sight">観光</div>
+          <div class="tb-time">17:30〜19:00</div>
+          <div class="tb-activity">Siloso Beach / Tanjong Beach散策</div>
+          <div class="tb-note">USから徒歩＋バスでSentosaビーチへ。夕暮れのビーチバーでトロピカルカクテルを1杯。市街地ではできないビーチ体験。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">19:00〜21:00</div>
+          <div class="tb-activity">夕食：Resorts World Sentosa内レストラン</div>
+          <div class="tb-note">Crystal Jade Kitchen（広東料理・S$30〜）またはSakura Buffet（和食・S$50〜）。USD内施設は本格的な食事が揃う。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat act">アクティビティ</div>
+          <div class="tb-time">21:00〜22:30</div>
+          <div class="tb-activity">Wings of Time（夜のビーチショー）</div>
+          <div class="tb-note">Sentosa Palawan Beachで行われる光・水・炎のナイトショー（S$18〜23）。旅行者に強くおすすめの幻想的体験。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat hotel">宿泊</div>
+          <div class="tb-time">チェックイン</div>
+          <div class="tb-activity">Sentosa内ホテルまたは市内へ</div>
+          <div class="tb-note">W Singapore（S$400〜）・Hard Rock Hotel Sentosa（S$200〜）に泊まるとより便利。翌日に向けて体力回復優先。</div>
+        </div>
+      </div>
+    </div>
+    <!-- Day 3 -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-num">Day 03</div>
+        <div class="day-title">Mandai＆<br>多文化地区</div>
+        <div class="day-theme">自然×多民族文化の1日</div>
+      </div>
+      <div class="day-body">
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">08:00〜09:00</div>
+          <div class="tb-activity">朝食：Toast Box（朝定食）</div>
+          <div class="tb-note">シンガポール全土に展開するカフェチェーン。カヤトースト・ナシレマ・バクテーを朝から楽しめる。S$6〜12。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat act">アクティビティ</div>
+          <div class="tb-time">09:30〜14:00</div>
+          <div class="tb-activity">Mandai Wildlife Reserve（午前）</div>
+          <div class="tb-note">Singapore Zoo（開場8:30）がおすすめ。Jungle Breakfast（S$35）でオランウータンと朝食。River Wondersに移動してパンダ鑑賞。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">14:00〜15:00</div>
+          <div class="tb-activity">昼食：Little India（テッカ・センター）</div>
+          <div class="tb-note">MRTでLittle India駅へ移動。ロティプラタ＋フィッシュカレー（S$8〜15）。ビリヤニもぜひ。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat sight">観光</div>
+          <div class="tb-time">15:30〜18:00</div>
+          <div class="tb-activity">Kampong Glam散策</div>
+          <div class="tb-note">スルタン・モスク見学→ハジ・レーン（壁画・カフェ）→アラブ・ストリート（生地・香水）。Bugisエリアでショッピングも。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat act">アクティビティ</div>
+          <div class="tb-time">19:30〜22:30</div>
+          <div class="tb-activity">Night Safari（夜の動物園）</div>
+          <div class="tb-note">Mandaiに戻ってNight Safari（開場18:30）。トラムツアー（約40分）＋ウォーキングトレイルで夜行性動物を堪能。S$55〜。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat hotel">宿泊</div>
+          <div class="tb-time">深夜チェックイン</div>
+          <div class="tb-activity">Orchard Road / Bugis周辺ホテル</div>
+          <div class="tb-note">翌日の空港アクセスを考慮してBugis・Orchard周辺が便利。Holiday Inn Express（S$150〜）・Swissôtel The Stamford（S$300〜）。</div>
+        </div>
+      </div>
+    </div>
+    <!-- Day 4 -->
+    <div class="day-col">
+      <div class="day-head">
+        <div class="day-num">Day 04</div>
+        <div class="day-title">ショッピング＆<br>帰国準備</div>
+        <div class="day-theme">最後の買い物と出発</div>
+      </div>
+      <div class="day-body">
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">08:00〜09:30</div>
+          <div class="tb-activity">朝食：Raffles Hotel Long Bar</div>
+          <div class="tb-note">せっかくなら最終日の朝食は歴史的ホテルで。シンガポール・スリングの発祥の地。ブランチセット（S$30〜50）。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat sight">観光</div>
+          <div class="tb-time">10:00〜11:30</div>
+          <div class="tb-activity">Singapore Flyer（展望）</div>
+          <div class="tb-note">最終日に全景を上から振り返り。30分の観覧でシンガポール全体が一望。夜景版でなく昼の開放的な景色も格別。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat act">ショッピング</div>
+          <div class="tb-time">12:00〜15:00</div>
+          <div class="tb-activity">Orchard Road でお土産最終買い</div>
+          <div class="tb-note">ION OchardのFairPriceでスーパー土産（TWG Tea・カヤジャム・バクワ）。ION B4FのFood Republicで最後のホーカーフードも。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat food">食事</div>
+          <div class="tb-time">15:30〜17:00</div>
+          <div class="tb-activity">締めの昼食：チリクラブ</div>
+          <div class="tb-note">No Signboard Seafood（Vivocity店）またはJump Seafood（東区）でチリクラブ（S$50〜80/人）。最後の締めに国民食を。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat act">移動</div>
+          <div class="tb-time">17:30〜19:00</div>
+          <div class="tb-activity">Changi空港へ→Jewel再訪</div>
+          <div class="tb-note">MRTでチャンギへ（S$2・約30分）。出国後のJewelで免税ショッピング。空港内の屋台でカヤトースト＋コーヒーを最後に。</div>
+        </div>
+        <div class="time-block">
+          <div class="tb-cat sight">出発</div>
+          <div class="tb-time">フライトまで</div>
+          <div class="tb-activity">余裕をもって搭乗準備</div>
+          <div class="tb-note">Changi T3のButterfly GardenやSunflower Gardenは無料の出発前スポット。日系便は多くが夜間出発。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="itin-tip rv" style="margin-top:28px;">
+    <div class="itin-tip-t">💡 旅のヒント</div>
+    <div class="itin-tip-b">【交通】MRT Tourist Pass（3日間S$20）が最もお得。GrabアプリをSIM設定後すぐ使えるよう準備を。<br>【通貨】S$1≈約110円。カード決済が主流だがホーカーは現金のみの店も多い（小額S$紙幣を常備）。<br>【服装】半袖1枚で十分だが、モール・MRT・レストランの冷房が強いため薄手の上着必携。<br>【宗教施設】モスク・ヒンドゥー寺院に入る際は肌の露出を控え、靴を脱ぐルールに注意。</div>
+  </div>
+</div>
+</section>
+
+<!-- ══ S7: まとめ ══ -->
+<section id="s7" class="sec">
+<div class="inn">
+  <div class="rv"><div class="chlbl">Chapter 07</div></div>
+  <div class="rv d1"><h2 class="cht">シンガポール観光から<br><em>学べること</em></h2></div>
+  <div class="rv d2"><p class="chsub">Key Lessons — What Singapore's Tourism Model Teaches the World</p></div>
+  <div class="rv d2"><div class="chrul"></div></div>
+  <div class="g2">
+    <div>
+      <div class="li rv"><div class="li-n">01</div><div><div class="li-t">「空港」が最初の観光体験になる</div><div class="li-b">Jewel Changiに降り立った瞬間から観光は始まる。40mの室内滝・ガーデン・スカイブリッジ——空港がそれ自体「見どころ」になることで旅行者の満足度と消費を同時に最大化する設計。</div></div></div>
+      <div class="li rv d1"><div class="li-n">02</div><div><div class="li-t">コンテンツ型観光で「何度でも来る理由」を作る</div><div class="li-b">F1グランプリ・テイラースウィフト・シンガポール・アートウィーク——「モノ」だけでなく「コト」で人を引きつける。年間カレンダーに世界的イベントを組み込みリピーターを創出。</div></div></div>
+      <div class="li rv d2"><div class="li-n">03</div><div><div class="li-t">多文化が「観光地そのもの」になる</div><div class="li-b">チャイナタウン・リトルインディア・カンポングラムの多文化街がシンガポール固有の観光資源となっている。行政による文化地区の保全と活性化が観光と文化継承を同時実現。</div></div></div>
+    </div>
+    <div>
+      <div class="li rv"><div class="li-n">04</div><div><div class="li-t">自然と都市を両立させる「City in a Garden」</div><div class="li-b">Gardens by the Bay・Mandai・UNESCO世界遺産植物園が証明する通り、緑と都市開発は対立しない。むしろ自然体験が観光価値を高め持続可能な観光収入を生む。</div></div></div>
+      <div class="li rv d1"><div class="li-n">05</div><div><div class="li-t">MRTが「観光インフラ」として完全機能</div><div class="li-b">130駅以上が観光名所を直結し1乗車S$2以下。観光者へのアクセス障壁を極限まで下げることで多くの観光地を1度の訪問で体験できる設計。コンパクトな国土との相乗効果が絶大。</div></div></div>
+      <div class="li rv d2"><div class="li-n">06</div><div><div class="li-t">「食」が世界最強の観光資源</div><div class="li-b">S$4のホーカーからミシュラン星付きまで——ミシュランガイドが世界で最も安価なエントリーを持つ都市として認定した。チキンライスとチリクラブが示すように食文化そのものが国際的なブランドになった。</div></div></div>
+    </div>
+  </div>
+
+  <div style="border-left:2px solid var(--gold);padding:16px 22px;background:rgba(201,148,58,.04);margin-top:48px;" class="rv">
+    <q style="font-family:'Cormorant Garamond',serif;font-size:clamp(15px,2vw,20px);font-style:italic;color:var(--paper);line-height:1.6;display:block;">「小さな島国が世界の人々を引き寄せ続ける理由は、常に進化を止めない観光設計力にある。」</q>
+    <cite style="display:block;font-size:10px;color:var(--dim);margin-top:8px;letter-spacing:2px;text-transform:uppercase;font-style:normal;">— Singapore Tourism Guide 2025</cite>
+  </div>
+
+  <div style="margin-top:48px;text-align:center;" class="rv">
+    <a href="index.html" style="display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);padding:12px 24px;font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--dim);transition:border-color .3s,color .3s;" onmouseover="this.style.borderColor='var(--gold)';this.style.color='var(--gold)';" onmouseout="this.style.borderColor='var(--line)';this.style.color='var(--dim)';">
+      ← Singapore Life Guide Top
+    </a>
+  </div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft-in">
+    <div><div class="ft-logo">Singapore<b>Tourism</b></div><p class="ft-desc">観光政策から気候・スポット・お土産・モデルコースまで網羅したシンガポール観光完全ガイド。</p></div>
+    <div>
+      <div class="ft-ct">Contents</div>
+      <div class="ft-lnk" onclick="gs('s1')">01 — 観光政策・インフラ</div>
+      <div class="ft-lnk" onclick="gs('s2')">02 — 観光業の役割</div>
+      <div class="ft-lnk" onclick="gs('s3')">03 — おすすめ観光時期</div>
+      <div class="ft-lnk" onclick="gs('s4-att')">04 — 人気スポット15選</div>
+      <div class="ft-lnk" onclick="gs('s5')">05 — お土産20選</div>
+      <div class="ft-lnk" onclick="gs('s6')">06 — 3泊4日モデルコース</div>
+      <div class="ft-lnk" onclick="gs('s7')">07 — まとめ</div>
+    </div>
+    <div>
+      <div class="ft-ct">Data Sources</div>
+      <p class="ft-desc" style="max-width:100%;">Singapore Tourism Board 2024<br>Mandai Wildlife Group 2025<br>Changi Airport Group 2024<br>WTTC Singapore 2025<br>Visit Singapore Official<br>Photos: Unsplash (CC0)</p>
+    </div>
+  </div>
+  <div class="ft-btm">
+    <span>© 2025 Singapore Life Guide — Tourism</span>
+    <span>Images: Unsplash CC0 License</span>
+  </div>
+</footer>
+<button id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+/* Header */
+window.addEventListener('scroll',()=>{
+  document.getElementById('hdr').classList.toggle('sc',window.scrollY>40);
+  document.getElementById('btt').classList.toggle('show',window.scrollY>600);
+});
+/* Mobile menu */
+function toggleM(){
+  const m=document.getElementById('mmenu'),h=document.getElementById('hmbg');
+  const o=m.classList.toggle('open');h.textContent=o?'✕':'☰';
+}
+function gs(id){
+  document.getElementById(id)?.scrollIntoView({behavior:'smooth'});
+  document.getElementById('mmenu').classList.remove('open');
+  document.getElementById('hmbg').textContent='☰';
+}
+/* Hero BG */
+window.addEventListener('load',()=>document.getElementById('hbg').classList.add('rdy'));
+/* Reveal */
+const els=document.querySelectorAll('.rv,.rl,.rr');
+const ro=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting)x.target.classList.add('in');});},{threshold:0.07});
+els.forEach(el=>{if(!el.classList.contains('in'))ro.observe(el);});
+/* Tab switcher */
+function switchTab(btn,panelId){
+  document.querySelectorAll('.sv-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.sv-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(panelId).classList.add('active');
+}
+</script>
+</body>
+</html>
